@@ -7,6 +7,7 @@ package com.example.dao;
 
 import com.example.util.DbUtil;
 import com.example.model.UserBean;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServlet;
  */
 public class UserDao extends HttpServlet {
     
-    public static boolean isValid(UserBean user)
+    public static boolean isValid(UserBean user) throws IOException
     {
         boolean result = false;
         DbUtil db = new DbUtil();
@@ -49,7 +50,7 @@ public class UserDao extends HttpServlet {
         return result;
     }
     
-    public static void main(String args[])
+    public static void main(String args[]) throws IOException
     {
         UserBean user = new UserBean();
         user.setUsername("kim");
